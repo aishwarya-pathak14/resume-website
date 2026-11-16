@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aishwarya Pathak — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#fdf6f0; --bg2:#eef4ff; --ink:#2f2a3b; --muted:#6d6880;
+  --peach:#ffd9c7; --lilac:#e3d9ff; --mint:#d3f2e4; --sky:#d4e6ff; --butter:#fff1c2; --rose:#ffd6e5;
+  --card:rgba(255,255,255,.72); --line:rgba(47,42,59,.08);
+  --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --sans:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);color:var(--ink);line-height:1.6;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));min-height:100vh;overflow-x:hidden}
+
+/* ---------- moving background tiles ---------- */
+.tiles{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.tiles i{position:absolute;display:block;border-radius:28%;opacity:.75;animation:drift 22s ease-in-out infinite alternate}
+.tiles i:nth-child(1){width:140px;height:140px;background:var(--peach);top:6%;left:5%;animation-duration:20s}
+.tiles i:nth-child(2){width:90px;height:90px;background:var(--lilac);top:14%;right:8%;animation-duration:26s;animation-delay:-4s}
+.tiles i:nth-child(3){width:180px;height:180px;background:var(--mint);top:48%;left:-40px;animation-duration:30s;animation-delay:-9s}
+.tiles i:nth-child(4){width:110px;height:110px;background:var(--sky);top:62%;right:6%;animation-duration:24s;animation-delay:-2s}
+.tiles i:nth-child(5){width:70px;height:70px;background:var(--butter);top:34%;left:42%;animation-duration:18s;animation-delay:-7s}
+.tiles i:nth-child(6){width:150px;height:150px;background:var(--rose);bottom:4%;left:30%;animation-duration:28s;animation-delay:-12s}
+.tiles i:nth-child(7){width:60px;height:60px;background:var(--lilac);bottom:18%;right:30%;animation-duration:16s;animation-delay:-5s}
+.tiles i:nth-child(8){width:100px;height:100px;background:var(--peach);top:80%;left:8%;animation-duration:23s;animation-delay:-14s}
+@keyframes drift{
+  0%{transform:translate(0,0) rotate(0deg)}
+  50%{transform:translate(40px,-60px) rotate(45deg) scale(1.08)}
+  100%{transform:translate(-30px,50px) rotate(95deg) scale(.95)}
+}
+
+/* ---------- layout ---------- */
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:18px 0 0}
+nav a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500;padding:8px 16px;border-radius:999px;
+  background:var(--card);border:1px solid var(--line);backdrop-filter:blur(8px);transition:transform .25s,background .25s}
+nav a:hover{transform:translateY(-3px);background:#fff}
+
+.hero{text-align:center;padding:64px 0 36px}
+.badge{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;
+  background:var(--lilac);color:#51428a;font-weight:500}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.05;margin:20px 0 12px}
+h1 span{background:linear-gradient(90deg,#f08a6b,#9b7ae0,#5aa6e8,#f08a6b);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.hero p{max-width:620px;margin:0 auto;color:var(--muted);font-weight:300;font-size:1.05rem}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.chip{padding:8px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:.85rem;
+  text-decoration:none;color:var(--ink);transition:transform .25s}
+.chip:hover{transform:translateY(-3px) rotate(-1.5deg)}
+
+/* ---------- marquee of tiles ---------- */
+.marquee{overflow:hidden;padding:18px 0;margin:10px 0 20px;position:relative;z-index:1;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:14px;width:max-content;animation:slide 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track span{padding:14px 26px;border-radius:20px;font-weight:500;font-size:.95rem;white-space:nowrap;color:var(--ink);border:1px solid var(--line)}
+.track span:nth-child(5n+1){background:var(--peach)}
+.track span:nth-child(5n+2){background:var(--lilac)}
+.track span:nth-child(5n+3){background:var(--mint)}
+.track span:nth-child(5n+4){background:var(--sky)}
+.track span:nth-child(5n+5){background:var(--butter)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- sections & cards ---------- */
+section{padding:34px 0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.5rem);margin:0 0 22px;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:34px;height:34px;border-radius:10px;background:var(--peach);animation:spin 9s linear infinite}
+#education h2::before{background:var(--sky)} #skills h2::before{background:var(--mint)}
+#activities h2::before{background:var(--lilac)} #more h2::before{background:var(--butter)}
+@keyframes spin{50%{border-radius:50%}to{transform:rotate(360deg)}}
+
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:24px;backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(120,100,160,.08);transition:transform .35s,box-shadow .35s;
+  animation:rise .8s ease both}
+.card:nth-child(2){animation-delay:.1s}.card:nth-child(3){animation-delay:.2s}.card:nth-child(4){animation-delay:.3s}
+.card:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(120,100,160,.16)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.card h3{margin:0 0 4px;font-size:1.1rem;font-weight:600}
+.card .tag{display:inline-block;font-size:.75rem;font-weight:500;padding:3px 12px;border-radius:999px;margin-bottom:12px}
+.card p,.card li{color:var(--muted);font-size:.92rem;font-weight:300;margin:0}
+.card ul{padding-left:18px;margin:8px 0 0}
+.c1{background:linear-gradient(160deg,rgba(255,217,199,.65),var(--card))}
+.c2{background:linear-gradient(160deg,rgba(212,230,255,.7),var(--card))}
+.c3{background:linear-gradient(160deg,rgba(211,242,228,.7),var(--card))}
+.c4{background:linear-gradient(160deg,rgba(227,217,255,.7),var(--card))}
+.c5{background:linear-gradient(160deg,rgba(255,241,194,.75),var(--card))}
+.c6{background:linear-gradient(160deg,rgba(255,214,229,.7),var(--card))}
+.wide{grid-column:1/-1}
+.pill{display:inline-block;margin:4px 6px 0 0;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,.8);
+  border:1px solid var(--line);font-size:.83rem;color:var(--ink);font-weight:400}
+
+footer{text-align:center;padding:50px 20px 40px;color:var(--muted);font-size:.9rem}
+footer a{color:var(--ink);font-weight:500}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="tiles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<header class="wrap">
+  <nav>
+    <a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a>
+    <a href="#activities">Activities</a><a href="#more">More</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="hero">
+    <span class="badge">BBA (DBE) · IIM Bangalore</span>
+    <h1>Hi, I’m <span>Aishwarya Pathak</span></h1>
+    <p>First-year business student from Vadodara, Gujarat — curious about business management, always learning, and happiest when working with a team.</p>
+    <div class="chips">
+      <a class="chip" href="mailto:aish.aishpathak@gmail.com">✉️ aish.aishpathak@gmail.com</a>
+      <a class="chip" href="tel:+917600030030">📞 +91 76000 30030</a>
+      <span class="chip">📍 Vadodara, Gujarat</span>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Business Communication</span><span>Financial Statements</span><span>Marketing Fundamentals</span><span>Website Development</span><span>Team Collaboration</span><span>Problem Solving</span><span>Quick Learner</span><span>Youth Parliament</span>
+    <span>Business Communication</span><span>Financial Statements</span><span>Marketing Fundamentals</span><span>Website Development</span><span>Team Collaboration</span><span>Problem Solving</span><span>Quick Learner</span><span>Youth Parliament</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section id="about">
+    <h2>About me</h2>
+    <div class="grid">
+      <div class="card c1 wide">
+        <p style="font-size:1.05rem">Motivated and dedicated, with a strong academic foundation and a keen interest in business management. I’m eager to apply my skills, learn new processes and contribute effectively to team goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="grid">
+      <div class="card c2">
+        <span class="tag" style="background:var(--sky)">Pursuing · Year 1</span>
+        <h3>BBA (DBE)</h3>
+        <p>IIM Bangalore</p>
+        <ul><li>Foundation of Business Communication</li><li>Financial Statements and Business Performance</li><li>Marketing Fundamentals</li><li>Website Development</li></ul>
+      </div>
+      <div class="card c3">
+        <span class="tag" style="background:var(--mint)">2026</span>
+        <h3>Higher Secondary (12th)</h3>
+        <p>CBSE · IIRA International School, Vadodara</p>
+        <ul><li>Maths, Physics, Chemistry</li><li>Computer Science &amp; English</li></ul>
+      </div>
+      <div class="card c5">
+        <span class="tag" style="background:var(--butter)">2024</span>
+        <h3>Secondary (10th)</h3>
+        <p>CBSE · Kendriya Vidyalaya No. 1, Gandhinagar</p>
+        <ul><li>Maths, Science, Social Science</li><li>English &amp; Hindi</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card c3">
+        <h3>Technical &amp; digital</h3><br>
+        <span class="pill">MS Office basics</span><span class="pill">Internet research</span><span class="pill">Email etiquette</span><span class="pill">Data entry &amp; typing</span><span class="pill">Social media basics</span>
+      </div>
+      <div class="card c4">
+        <h3>Soft skills &amp; strengths</h3><br>
+        <span class="pill">Written communication</span><span class="pill">Verbal communication</span><span class="pill">Quick learner</span><span class="pill">Team collaboration</span><span class="pill">Problem solving</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2>Activities &amp; achievements</h2>
+    <div class="grid">
+      <div class="card c6">
+        <span class="tag" style="background:var(--rose)">2025 · Achievement</span>
+        <h3>Student Ambassador</h3>
+        <p>Society for Science of Climate Change and Sustainable Environment (SSCE)</p>
+      </div>
+      <div class="card c4">
+        <span class="tag" style="background:var(--lilac)">Regional · 1st prize ×2</span>
+        <h3>CMP Cultural Meet</h3>
+        <p>English poem recitation and group dance. Also many school-level events: solo &amp; group song, solo &amp; group dance, rangoli and more.</p>
+      </div>
+      <div class="card c2">
+        <span class="tag" style="background:var(--sky)">2019 · National</span>
+        <h3>National Children’s Science Congress</h3>
+        <p>Represented Gujarat at the national level.</p>
+      </div>
+      <div class="card c1">
+        <span class="tag" style="background:var(--peach)">2022–23 · Regional</span>
+        <h3>33rd Youth Parliament</h3>
+        <p>Took part at the regional level.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="more">
+    <h2>More about me</h2>
+    <div class="grid">
+      <div class="card c5">
+        <h3>Languages</h3><br>
+        <span class="pill">English</span><span class="pill">Hindi</span><span class="pill">Gujarati</span>
+      </div>
+      <div class="card c3">
+        <h3>Hobbies</h3><br>
+        <span class="pill">📚 Reading</span><span class="pill">💃 Dancing</span><span class="pill">🎤 Singing</span><span class="pill">✈️ Travelling</span><span class="pill">🍳 Cooking</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <p>Let’s connect — <a href="mailto:aish.aishpathak@gmail.com">aish.aishpathak@gmail.com</a></p>
+  <p>© 2026 Aishwarya Santosh Pathak</p>
+</footer>
+
+</body>
+</html>
